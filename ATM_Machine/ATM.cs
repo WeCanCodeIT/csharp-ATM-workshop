@@ -22,5 +22,10 @@ namespace ATM_Machine
         {
             Balance -= 10;
         }
+
+        public void Deposit()
+        {
+            Balance += 50;
+        }
     }
 }

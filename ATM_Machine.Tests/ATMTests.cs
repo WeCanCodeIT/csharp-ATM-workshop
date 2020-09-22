@@ -52,5 +52,19 @@ namespace ATM_Machine.Tests
             Assert.Equal(finalBalance, myAtm.Balance);
 
         }
+
+        [Fact]
+        public void Deposit_Should_Increase_Balance_by_50()
+        {
+            // Arrange
+            myAtm.Balance = 50;
+            double finalBalance = myAtm.Balance + 50;
+
+            // Act
+            myAtm.Deposit();
+
+            // Assert
+            Assert.Equal(finalBalance, myAtm.Balance);
+        }
     }
 }
