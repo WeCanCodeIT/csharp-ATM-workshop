@@ -3,36 +3,36 @@ using Xunit;
 
 namespace ATM_Machine.Tests
 {
-    public class ATMTests
+    public class AccountTests
     {
-        ATM myAtm;
+        Account myAccount;
 
-        public ATMTests()
+        public AccountTests()
         {
-            myAtm = new ATM();
+            myAccount = new Account();
         }
 
         [Fact]
         public void New_ATM_Should_Have_Balance_of_100()
         {
             // Arrange
-            // ATM myAtm = new ATM();
+            // Account myAccount = new Account();
 
             // Act
 
             // Assert
-            Assert.Equal(100.00, myAtm.Balance);
+            Assert.Equal(100.00, myAccount.Balance);
         }
 
         [Fact]
         public void GetBalance_Should_Return_Our_Balance()
         {
             // Arrange
-            // ATM myAtm = new ATM();
-            myAtm.Balance = 1000000;
+            // Account myAccount = new Account();
+            myAccount.Balance = 1000000;
 
             // Act
-            double myBalance = myAtm.GetBalance();
+            double myBalance = myAccount.GetBalance();
 
             // Assert
             Assert.Equal(1000000, myBalance);
@@ -42,14 +42,14 @@ namespace ATM_Machine.Tests
         public void Withdraw_Should_Decrease_Balance_by_10()
         {
             // Arrange
-            myAtm.Balance = 50;
-            double finalBalance = myAtm.Balance - 10;
+            myAccount.Balance = 50;
+            double finalBalance = myAccount.Balance - 10;
 
             // Act
-            myAtm.Withdraw();
+            myAccount.Withdraw();
 
             // Assert
-            Assert.Equal(finalBalance, myAtm.Balance);
+            Assert.Equal(finalBalance, myAccount.Balance);
 
         }
 
@@ -57,14 +57,14 @@ namespace ATM_Machine.Tests
         public void Deposit_Should_Increase_Balance_by_50()
         {
             // Arrange
-            myAtm.Balance = 50;
-            double finalBalance = myAtm.Balance + 50;
+            myAccount.Balance = 50;
+            double finalBalance = myAccount.Balance + 50;
 
             // Act
-            myAtm.Deposit();
+            myAccount.Deposit();
 
             // Assert
-            Assert.Equal(finalBalance, myAtm.Balance);
+            Assert.Equal(finalBalance, myAccount.Balance);
         }
     }
 }
