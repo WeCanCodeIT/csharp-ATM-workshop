@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ATM_Machine
@@ -9,12 +10,16 @@ namespace ATM_Machine
         public Account()
         {
             Balance = 100;
+           
         }
         
         public double Balance { get; set; }
+        public string AccountNumber { get; set; }
+        public string NickName { get; set; }
 
-        public double GetBalance()
+        public virtual double GetBalance()
         {
+            Console.WriteLine("Main account funds: " + Balance);
             return Balance;
         }
 
