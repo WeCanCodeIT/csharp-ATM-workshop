@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ATM_Machine
 {
-    public class ATM
+    public class Account
     {
-        public ATM()
+        public Account()
         {
             Balance = 100;
         }

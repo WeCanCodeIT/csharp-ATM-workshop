@@ -7,7 +7,7 @@ namespace ATM_Machine
     {
         static void Main(string[] args)
         {
-            ATM atm = new ATM();
+            Account account = new Account();
             
             Console.WriteLine("Welcome to ATM Machine");
 
@@ -25,15 +25,15 @@ namespace ATM_Machine
                 switch (atmChoice)
                 {
                     case "1":
-                        double currentBalance = atm.GetBalance();
+                        double currentBalance = account.GetBalance();
                         Console.WriteLine($"Your current balance is {currentBalance:C2}");
                         break;
                     case "2":
-                        atm.Withdraw();
+                        account.Withdraw();
                         Console.WriteLine("You withdrew $10");
                         break;
                     case "3":
-                        atm.Deposit();
+                        account.Deposit();
                         Console.WriteLine("You deposited $50");
                         break;
                     case "4":
