@@ -10,7 +10,6 @@ namespace ATM_Machine
         public Account()
         {
             Balance = 100;
-           
         }
         
         public double Balance { get; set; }

@@ -16,6 +16,16 @@ namespace ATM_Machine
             Balance = 250.00;
         }
 
+        public Checking(string nickName, string accountNumber)
+        {
+            MinimumRequiredBalance = 200.00;
+            CheckNumber = 1;
+            Balance = 250.00;
+            NickName = nickName;
+            AccountNumber = accountNumber;
+        }
+
+
         public void WriteCheck()
         {
             CheckNumber++;
@@ -24,14 +34,8 @@ namespace ATM_Machine
 
         public override double GetBalance()
         {
-            Console.WriteLine("Checking funds: " + Balance);
+            // Console.WriteLine("Checking funds: " + Balance);
             return Balance;
         }
-
-
-
-
     }
-
-    
 }

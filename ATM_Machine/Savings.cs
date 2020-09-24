@@ -12,9 +12,16 @@ namespace ATM_Machine
             Balance = 200.00;
         }
 
+        public Savings(string nickName, string accountNumber)
+        {
+            Balance = 200;
+            AccountNumber = accountNumber;
+            NickName = nickName;
+        }
+
         public override double GetBalance()
         {
-            Console.WriteLine("Savings funds: " + Balance);
+            // Console.WriteLine("Savings funds: " + Balance);
             return Balance;
         }
     }

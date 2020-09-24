@@ -25,11 +25,5 @@ namespace ATM_Machine.Tests
             Assert.Equal(200.00, mySavings.Balance);
         }
 
-
-
-
-
-
-
     }
 }
