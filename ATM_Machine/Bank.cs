@@ -12,5 +12,20 @@ namespace ATM_Machine
         {
             ListOfAccounts.Add(account);
         }
+
+        public Account SelectAccount()
+        {
+            int index = 1;
+
+            Console.WriteLine("Please select an account from the list:");
+            foreach(Account account in ListOfAccounts)
+            {
+                Console.WriteLine($"{index}. {account.AccountNumber} {account.NickName}");
+                index++;
+            }
+
+            int indexSelected = Convert.ToInt32(Console.ReadLine());
+            return ListOfAccounts[indexSelected - 1];
+        }
     }
 }
