@@ -66,7 +66,7 @@ namespace ATM_Machine.Tests
             myAccount.Deposit();
 
             // Assert
-            Assert.Equal(100, myAccount.Balance);
+            Assert.Equal(finalBalance, myAccount.Balance);
 
         }
 

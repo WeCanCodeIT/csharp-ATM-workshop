@@ -6,15 +6,48 @@ namespace ATM_Machine
     {
         static void Main(string[] args)
         {
+            Account account = new Account();
+
             Console.WriteLine("Welcome to ATM Machine!");
 
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("1. Check balance");
-            Console.WriteLine("2. Withdraw $10");
-            Console.WriteLine("3. Deposit $50");
-            Console.WriteLine("4 Exit");
+            bool keepBanking = true;
+            while (keepBanking)
+            {
+                Console.WriteLine("\nWhat would you like to do?");
+                Console.WriteLine("1. Check balance");
+                Console.WriteLine("2. Withdraw $10");
+                Console.WriteLine("3. Deposit $50");
+                Console.WriteLine("4. Exit");
 
-            string accountChoice = Console.ReadLine();
+                string accountChoice = Console.ReadLine();
+
+                switch (accountChoice)
+                {
+                    case "1":
+                        double currentBalance = account.GetBalance();
+                        Console.WriteLine($"Your balance is {currentBalance:C2}");
+                        break;
+                    case "2":
+                        account.Withdraw();
+                        Console.WriteLine("You withdrew $10");
+                        break;
+                    case "3":
+                        account.Deposit();
+                        Console.WriteLine("You deposited $50");
+                        break;
+                    case "4":
+                        Console.WriteLine("Thank you for banking with us.");
+                        keepBanking = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid entry");
+                        break;
+                }
+
+                Console.WriteLine("press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+            }
         }
     }
 }
