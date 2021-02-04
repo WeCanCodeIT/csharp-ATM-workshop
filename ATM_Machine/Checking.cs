@@ -13,6 +13,17 @@ namespace ATM_Machine
         {
             MinimumRequiredBalance = 200.00;
             CheckNumber = 1;
+            Balance = 250.00;
+        }
+
+        public Checking(string nickName, string accountNumber)
+        {
+            MinimumRequiredBalance = 200.00;
+            CheckNumber = 1;
+            Balance = 250.00;
+            NickName = nickName;
+            AccountNumber = accountNumber;
+
         }
 
         public void WriteCheck()

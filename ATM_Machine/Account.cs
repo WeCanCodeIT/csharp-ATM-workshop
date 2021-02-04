@@ -14,6 +14,8 @@ namespace ATM_Machine
 
 
         public double Balance { get; set; }
+        public string AccountNumber { get; set; }
+        public string NickName { get; set; }
 
 
         public double GetBalance()
