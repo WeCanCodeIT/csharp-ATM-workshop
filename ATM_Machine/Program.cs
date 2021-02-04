@@ -7,25 +7,8 @@ namespace ATM_Machine
     {
         static void Main(string[] args)
         {
-            Account myAccount = new Account();
-
             Bank myBank = new Bank();
-
-            // List<Account> ListofAccounts = new List<Account>();
-
-            Checking checkingAccount = new Checking()
-            {
-                AccountNumber = "C12-345",
-                NickName = "First Checking",
-            };
-
-            //ListofAccounts.Add(checkingAccount);
-
-            //ListofAccounts.Add(new Savings()
-            //{
-            //    AccountNumber = "S89-212",
-            //    NickName = "Goal Savings"
-            //});
+            Account myAccount = new Account();
 
             Console.WriteLine("Welcome to ATM Machine!");
 
@@ -33,37 +16,18 @@ namespace ATM_Machine
             while (keepBanking)
             {
                 Console.WriteLine("\nWhat would you like to do?");
-                Console.WriteLine("1. Check balance");
-                Console.WriteLine("2. Withdraw $10");
-                Console.WriteLine("3. Deposit $50");
-                Console.WriteLine("4. Exit");
-                Console.WriteLine("5. Add checking account");
-                Console.WriteLine("6. Add savings account");
+                Console.WriteLine("1. Add checking account");
+                Console.WriteLine("2. Add savings account");
+                Console.WriteLine("3. Check balance of all accounts");
+                Console.WriteLine("4. Withdraw $10");
+                Console.WriteLine("5. Deposit $50");
+                Console.WriteLine("6. Exit");
 
                 string accountChoice = Console.ReadLine();
 
                 switch (accountChoice)
                 {
                     case "1":
-                        foreach (Account account in myBank.ListofAccounts)
-                        {
-                            double currentBalance = account.GetBalance();
-                            Console.WriteLine($"Your current balance of {account.NickName} is {currentBalance:C2}");
-                        }
-                        break;
-                    case "2":
-                        //account.Withdraw();
-                        //Console.WriteLine("You withdrew $10");
-                        //break;
-                    case "3":
-                        //account.Deposit();
-                        //Console.WriteLine("You deposited $50");
-                        //break;
-                    case "4":
-                        Console.WriteLine("Thank you for banking with us.");
-                        keepBanking = false;
-                        break;
-                    case "5":
                         Console.WriteLine("What is your nickname for your checking account?");
                         string nickName = Console.ReadLine();
                         Console.WriteLine("What is the account number for your checking account?");
@@ -71,7 +35,8 @@ namespace ATM_Machine
                         myAccount = new Checking(nickName, accountNumber);
                         myBank.AddAccount(myAccount);
                         break;
-                    case "6":
+
+                    case "2":
                         Console.WriteLine("What is your nickname for your savings account?");
                         nickName = Console.ReadLine();
                         Console.WriteLine("What is the account number for your savings account?");
@@ -79,6 +44,32 @@ namespace ATM_Machine
                         myAccount = new Savings(nickName, accountNumber);
                         myBank.AddAccount(myAccount);
                         break;
+
+                    case "3":
+                        foreach (Account account in myBank.ListofAccounts)
+                        {
+                            double currentBalance = account.GetBalance();
+                            Console.WriteLine($"Your current balance of {account.NickName} is {currentBalance:C2}");
+                        }
+                        break;
+
+                    case "4":
+                        //account.Withdraw();
+                        //Console.WriteLine("You withdrew $10");
+                        //break;
+                        break;
+
+                    case "5":
+                        //account.Deposit();
+                        //Console.WriteLine("You deposited $50");
+                        //break;
+                        break;
+
+                    case "6":
+                        Console.WriteLine("Thank you for banking with us.");
+                        keepBanking = false;
+                        break;
+
                     default:
                         Console.WriteLine("Invalid entry");
                         break;
