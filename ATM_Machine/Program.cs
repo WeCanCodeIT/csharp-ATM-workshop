@@ -54,15 +54,15 @@ namespace ATM_Machine
                         break;
 
                     case "4":
-                        //account.Withdraw();
-                        //Console.WriteLine("You withdrew $10");
-                        //break;
+                        myAccount = myBank.SelectAccount();
+                        myAccount.Withdraw();
+                        Console.WriteLine("You withdrew $10");
                         break;
 
                     case "5":
-                        //account.Deposit();
-                        //Console.WriteLine("You deposited $50");
-                        //break;
+                        myAccount = myBank.SelectAccount();
+                        myAccount.Deposit();
+                        Console.WriteLine("You deposited $50");
                         break;
 
                     case "6":
