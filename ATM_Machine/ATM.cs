@@ -27,5 +27,10 @@ namespace ATM_Machine
         {
             Balance += 50; // Balance = Balance + 50
         }
+
+        public void Deposit(double amount)
+        {
+            Balance += amount; // Balance = Balance + amount
+        }
     }
 }

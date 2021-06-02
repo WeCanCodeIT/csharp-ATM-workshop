@@ -18,7 +18,8 @@ namespace ATM_Machine
                 Console.WriteLine("1. Check balance");
                 Console.WriteLine("2. Withdraw $10");
                 Console.WriteLine("3. Deposit $50");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Deposit A Specific Amount");
+                Console.WriteLine("5. Exit");
 
                 string atmChoice = Console.ReadLine();
 
@@ -37,6 +38,12 @@ namespace ATM_Machine
                         Console.WriteLine("You deposited $50");
                         break;
                     case "4":
+                        Console.WriteLine("Specify an amount to deposit:");
+                        double amount = Convert.ToDouble(Console.ReadLine());
+                        atm.Deposit(amount);
+                        Console.WriteLine($"You deposited {amount:C2}");
+                        break;
+                    case "5":
                         Console.WriteLine("Thank you for banking with us.");
                         keepBanking = false;
                         break;

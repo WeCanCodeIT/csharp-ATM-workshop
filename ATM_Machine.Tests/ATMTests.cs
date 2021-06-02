@@ -57,5 +57,18 @@ namespace ATM_Machine.Tests
             Assert.Equal(150, myATM.Balance);
         }
 
+        [Fact]
+        public void Deposit_Specific_Amount_Should_Increase_Balance_by_Amount()
+        {
+            //Arrange
+            ATM myATM = new ATM();
+
+            //Act
+            myATM.Deposit(100);
+
+            //Assert
+            Assert.Equal(200, myATM.Balance);
+        }
+
     }
 }
