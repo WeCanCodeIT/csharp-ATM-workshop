@@ -3,29 +3,30 @@ using Xunit;
 
 namespace ATM_Machine.Tests
 {
-    public class ATMTests
+    public class AccountTests
     {
+        Account myAccount = new Account();
+
         [Fact]
         public void New_ATM_Should_Have_Balance_of_100()
         {
             // Arrange
-            ATM myATM = new ATM();
+            
 
             // Act
 
             // Assert
-            Assert.Equal(100.00, myATM.Balance);
+            Assert.Equal(100.00, myAccount.Balance);
         }
 
         [Fact]
         public void GetBalance_Should_Return_Our_Balance()
         {
             //Arrange
-            ATM myATM = new ATM();
-            myATM.Balance = 1000;
+            myAccount.Balance = 1000;
 
             //Act
-            double myBalance = myATM.GetBalance();
+            double myBalance = myAccount.GetBalance();
 
             //Assert
             Assert.Equal(1000, myBalance);
@@ -35,39 +36,38 @@ namespace ATM_Machine.Tests
         public void Withdraw_Should_Decrease_Balance_by_10()
         {
             //Arrange
-            ATM myATM = new ATM();
+
 
             //Act
-            myATM.Withdraw();
+            myAccount.Withdraw();
 
             //Assert
-            Assert.Equal(90, myATM.Balance);
+            Assert.Equal(90, myAccount.Balance);
         }
 
         [Fact]
         public void Deposit_Should_Increase_Balance_by_50()
         {
             //Arrange
-            ATM myATM = new ATM();
 
             //Act
-            myATM.Deposit();
+            myAccount.Deposit();
 
             //Assert
-            Assert.Equal(150, myATM.Balance);
+            Assert.Equal(150, myAccount.Balance);
         }
 
         [Fact]
         public void Deposit_Specific_Amount_Should_Increase_Balance_by_Amount()
         {
             //Arrange
-            ATM myATM = new ATM();
+
 
             //Act
-            myATM.Deposit(100);
+            myAccount.Deposit(100);
 
             //Assert
-            Assert.Equal(200, myATM.Balance);
+            Assert.Equal(200, myAccount.Balance);
         }
 
     }

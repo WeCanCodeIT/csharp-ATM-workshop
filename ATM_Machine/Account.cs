@@ -4,17 +4,20 @@ using System.Text;
 
 namespace ATM_Machine
 {
-    public class ATM
+    public class Account
     {
         public double Balance { get; set; }
+        public string AccountNumber { get; set; }
+        public string NickName { get; set; }
 
-        public ATM()
+        public Account()
         {
             Balance = 100.00;
         }
 
-        public double GetBalance()
+        public virtual double GetBalance()
         {
+            Console.WriteLine("Main account funds: " + Balance);
             return Balance;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ATM_Machine
 {
@@ -6,7 +7,14 @@ namespace ATM_Machine
     {
         static void Main(string[] args)
         {
-            ATM atm = new ATM();
+            //Account atm = new Account();
+            List<Account> accounts = new List<Account>();
+            
+            Checking myChecking = new Checking();
+            Savings mySavings = new Savings();
+
+            accounts.Add(myChecking);
+            accounts.Add(mySavings);
 
             Console.WriteLine("Welcome to ATM Machine");
 
@@ -26,21 +34,27 @@ namespace ATM_Machine
                 switch (atmChoice)
                 {
                     case "1":
-                        double currentBalance = atm.GetBalance();
-                        Console.WriteLine($"Your current balance is: {currentBalance:C2}");
+                        //double currentBalance = atm.GetBalance();
+
+                        foreach(var account in accounts)
+                        {
+                            double currentBalance = account.GetBalance();
+                            Console.WriteLine($"Your current balance is: {currentBalance:C2}");
+                        }
+
                         break;
                     case "2":
-                        atm.Withdraw();
+                        //atm.Withdraw();
                         Console.WriteLine("You withdrew $10");
                         break;
                     case "3":
-                        atm.Deposit();
+                        //atm.Deposit();
                         Console.WriteLine("You deposited $50");
                         break;
                     case "4":
                         Console.WriteLine("Specify an amount to deposit:");
                         double amount = Convert.ToDouble(Console.ReadLine());
-                        atm.Deposit(amount);
+                        //atm.Deposit(amount);
                         Console.WriteLine($"You deposited {amount:C2}");
                         break;
                     case "5":
