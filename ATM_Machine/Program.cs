@@ -7,14 +7,7 @@ namespace ATM_Machine
     {
         static void Main(string[] args)
         {
-            //Account atm = new Account();
-            List<Account> accounts = new List<Account>();
-            
-            Checking myChecking = new Checking();
-            Savings mySavings = new Savings();
-
-            accounts.Add(myChecking);
-            accounts.Add(mySavings);
+            Bank myBank = new Bank();
 
             Console.WriteLine("Welcome to ATM Machine");
 
@@ -27,7 +20,10 @@ namespace ATM_Machine
                 Console.WriteLine("2. Withdraw $10");
                 Console.WriteLine("3. Deposit $50");
                 Console.WriteLine("4. Deposit A Specific Amount");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Create a Checking Account");
+                Console.WriteLine("6. Create a Savings Account");
+                Console.WriteLine("7. Delete an Account");
+                Console.WriteLine("8. Exit");
 
                 string atmChoice = Console.ReadLine();
 
@@ -36,7 +32,7 @@ namespace ATM_Machine
                     case "1":
                         //double currentBalance = atm.GetBalance();
 
-                        foreach(var account in accounts)
+                        foreach(var account in myBank.ListOfAccounts)
                         {
                             double currentBalance = account.GetBalance();
                             Console.WriteLine($"Your current balance is: {currentBalance:C2}");
@@ -58,6 +54,39 @@ namespace ATM_Machine
                         Console.WriteLine($"You deposited {amount:C2}");
                         break;
                     case "5":
+                        Console.WriteLine("Enter a nickname for this checking account: ");
+                        string checkingName = Console.ReadLine();
+                        Console.WriteLine("Enter an account number for this checking account: ");
+                        string checkingAccountNumber = Console.ReadLine();
+                        
+                        Checking myChecking = new Checking(checkingName, checkingAccountNumber);
+                        myBank.AddAccount(myChecking);
+                        
+                        break;
+                    case "6":
+                        Console.WriteLine("Enter a nickname for this savings account: ");
+                        string savingsName = Console.ReadLine();
+                        Console.WriteLine("Enter an account number for this savings account: ");
+                        string savingsAccountNumber = Console.ReadLine();
+                        
+                        myBank.AddAccount(new Savings(savingsName, savingsAccountNumber));
+
+                        break;
+                    case "7":
+                        Console.Clear();
+                        Console.WriteLine("Choose an account to remove: ");
+                        int index = 1;
+                        foreach(var account in myBank.ListOfAccounts)
+                        {
+                            Console.WriteLine($"{index}. {account.NickName}");
+                            index++;
+                        }
+
+                        int userChoice = Convert.ToInt32(Console.ReadLine());
+                        myBank.RemoveAccount(userChoice - 1);
+
+                        break;
+                    case "8":
                         Console.WriteLine("Thank you for banking with us.");
                         keepBanking = false;
                         break;

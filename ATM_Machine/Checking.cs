@@ -15,6 +15,12 @@ namespace ATM_Machine
             CheckNumber = 1;
         }
 
+        public Checking(string name, string account)
+        {
+            NickName = name;
+            AccountNumber = account;
+        }
+
         public void WriteCheck()
         {
             CheckNumber++;
